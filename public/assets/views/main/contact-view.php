@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script type="text/javascript" src="./assets/js/contact.js"></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cape Cod Bay Sailing - Contact</title>
