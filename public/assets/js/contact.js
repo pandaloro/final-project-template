@@ -1,4 +1,4 @@
-<script> 
+
     $(document).ready(function () {
 
                 $('#form-id').on('submit', function (e) {
@@ -61,4 +61,4 @@
                 })
 
             })
-</script>
+
