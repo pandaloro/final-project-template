@@ -23,9 +23,7 @@ class ContactController extends Controller
         }
         if ($phone) {
             $phone = htmlspecialchars($phone, ENT_QUOTES|ENT_HTML5, 'UTF-8', true);
-            if (strlen($phone) != 10) {
-                $errors['phoneShort'] = 'phone number must be 10 digits';
-            }
+            
         } else {
             $errors['phoneRequired'] = 'phone is required';
         }
@@ -69,11 +67,11 @@ class ContactController extends Controller
     //    exit();
     //}
 
-    public function saveContact() {
+    public function postContact() {
             $inputData = [
                 'name' => $_POST['name'] ? $_POST['name'] : false,
                 'email' => $_POST['email'] ? $_POST['email'] : false,
-                'phone' => $_POST['phone'] ? $_POST['description'] : false,
+                'phone' => $_POST['phone'] ? $_POST['phone'] : false,
                 'description' => $_POST['description'] ? $_POST['description'] : false,
             ];
             $contactData = $this->validateContact($inputData);
@@ -94,6 +92,7 @@ class ContactController extends Controller
             echo json_encode([
                 'success' => true
             ]);
+           
             exit();
         
     }
@@ -103,6 +102,6 @@ class ContactController extends Controller
     }
     public function viewContact() 
     {
-        include '../public/assets/views/main/contact-view.php';
+        include '../public/assets/views/main/contact-view.html';
     }
 }
