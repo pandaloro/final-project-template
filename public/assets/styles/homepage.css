@@ -1,3 +1,14 @@
 p {
     color: blue;
 }
+.container .row .col-md-4 {
+    margin-right: 20px
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    content: center;
+}
