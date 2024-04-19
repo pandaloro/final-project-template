@@ -23,5 +23,12 @@ $routes = [
         'controller' => MainController::class,
         'GET' => 'homepage',
     ]
-    
+    'posts' => [
+        'controller' => UserController::class,
+        'GET' => 'getUsers',
+    ],
+    'cards' => [
+        'controller' => CardController::class,
+        'GET' => 'getCards',
+    ],
 ];
