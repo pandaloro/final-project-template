@@ -3,7 +3,7 @@
 use app\controllers\UserController;
 use app\controllers\MainController;
 use app\controllers\ContactController;
-
+use app\controllers\CardController;
 $routes = [
     'users' => [
         'controller' => UserController::class,
@@ -22,7 +22,7 @@ $routes = [
     '#' => [
         'controller' => MainController::class,
         'GET' => 'homepage',
-    ]
+    ],
     'posts' => [
         'controller' => UserController::class,
         'GET' => 'getUsers',
