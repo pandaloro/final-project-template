@@ -1,16 +1,14 @@
 <html>
     <head>
         <script type="text/javascript" src="./assets/js/homepage.js"></script>
-        <link rel="stylesheet" href="./assets/styles/homepage.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cape Cod Bay Sailing</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" href="./assets/styles/homepage.css">
 </head>
 
 <body>
@@ -41,10 +39,9 @@
 </nav>
 
 
-    
 <div id="home" class="container-fluid py-5 text-center" style="background-image: url('https://thebestcamps.com/camp-admin/camp-images/2672-large.jpg'); background-size: cover; background-position: center; color: white; min-height: 600px;">
     <h1 class="display-4">Experience the Beauty of Sailing</h1>
-    <p class="lead">Join us for an unforgettable sailing adventure in Cape Cod Bay.</p>
+    <h6 class="lead">Join us for an unforgettable sailing adventure in Cape Cod Bay.</h6>
     <a href="#services" class="btn btn-primary btn-lg">Learn More</a>
 </div>
 
@@ -58,51 +55,64 @@
     
     <div id="services" class="container mt-5">
         <h2 class="text-center">Our Services</h2>
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Private Lessons</h5>
-                        <p class="card-text">Desc</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Guided Excursion</h5>
-                        <p class="card-text">desc</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Rent a Sailboat</h5>
-                        <p class="card-text">desc</p>
-                    </div>
-                </div>
-            </div>
+        <div class="row mt-4" id="cards-container">
         </div>
     </div>
 
    
     <div id="testimonials" class="container mt-5">
         <h2 class="text-center">What Our Customers Say</h2>
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <blockquote class="blockquote">
-                    <p>"An amazing sailing experience! Highly recommended."</p>
-                    <footer class="blockquote-footer">Anonymous</footer>
-                </blockquote>
-            </div>
-            
+        <div class="row mt-4" id="posts-container">
         </div>
     </div>
-    
+    <script>
+            $(document).ready(function () {
+            $.ajax({
+                url: `http://localhost:8888/cards`,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $('#cards-container').html('');
+            
+                    $.each(data, function (key, value) {
+                        $('#cards-container').append(`
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="${value['img']}" class="card-img-top" alt="..." style="height: 450px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">${value['card_title']}</h5>
+                                    <p class="card-text">${value['card_text']}</p>
+                                </div>
+                            </div>
+                        </div>`)
+                    });
+                }
+            })
+        })
+    </script>
+    <script>
+            $(document).ready(function () {
+            $.ajax({
+                url: `http://localhost:8888/posts`,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $('#posts-container').html('');
+            
+                    $.each(data, function (key, value) {
+                        $('#posts-container').append(`
+                            <div class="col md-4">
+                            <blockquote class="blockquote">
+                             <p> ${value['description']} </p>
+                             <footer class="blockquote-footer"> ${value['name']} </footer>
+                            </blockquote>    
+                            </div>      
+                        `)
+                    });
+                }
+            });
+        })
+        </script>
     
     <h2 class="text-center">Our Location</h2>
     <div class="embed-responsive embed-responsive-16by9 mt-4">
@@ -112,10 +122,20 @@
 
 
     
-    <footer class="bg-primary text-white text-center py-4">
+    <footer class="bg-dark text-white py-4">
         <div class="container">
-            <p>Follow us on <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
-            <p>&copy; 2024 Cape Cod Bay Sailing. All rights reserved.</p>
+        <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Cape Cod Sailing. All Rights Reserved.</p>
+                    <p>Follow us on <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -123,4 +143,5 @@
     <script>
 </body>
 </html>
+
 
