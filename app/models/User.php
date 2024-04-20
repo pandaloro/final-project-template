@@ -8,7 +8,7 @@ class User
 {
     use Model;
 
-    protected $table = 'users';
+    protected $table = 'reviews';
 
     public function getAllUsers() {
         return $this->findAll();
