@@ -1,12 +1,11 @@
 
-p:last-child,
-.footer {
-    color: white;
-}
 p {
     color: blue;
 }
-
+p:last-child,
+p.footer {
+    color: white;
+}
 p.text-center {
     color: blue; /* Set your desired color */
 }
@@ -30,7 +29,6 @@ p.card-text {
 .container:last-child {
     max-width: 600px;
 }
-
 
 
 
