@@ -27,12 +27,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
-                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="contact-view">Contact</a>
                 </li>
