@@ -11,7 +11,7 @@ class Contact
     protected $table = 'contact';
 
     public function saveContact($inputData){
-        $query = "insert into contacts (name, email, phone, description) values (:name, :email, :phone, :description);";
+        $query = "insert into contact (name, email, phone, description) values (:name, :email, :phone, :description);";
         return $this->query($query, $inputData);
     }
 }
