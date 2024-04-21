@@ -102,6 +102,6 @@ class ContactController extends Controller
     }
     public function viewContact() 
     {
-        include '../public/assets/views/main/contact-view.php';
+        include '../public/assets/views/main/contact-view.html';
     }
 }
